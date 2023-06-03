@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Invoice</title>
+    <!-- Add any required CSS styles -->
+</head>
+<body>
+<h1>Invoice</h1>
+
+<div>
+    <h2>Seller:</h2>
+    <p>Company: <span th:text="${invoice.seller}"></span></p>
+    <p>GSTIN: <span th:text="${invoice.sellerGstin}"></span></p>
+    <p>Address: <span th:text="${invoice.sellerAddress}"></span></p>
+</div>
+
+<div>
+    <h2>Buyer:</h2>
+    <p>Company: <span th:text="${invoice.buyer}"></span></p>
+    <p>GSTIN: <span th:text="${invoice.buyerGstin}"></span></p>
+    <p>Address: <span th:text="${invoice.buyerAddress}"></span></p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Rate</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${invoice.items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td th:text="${item.rate}"></td>
+        <td th:text="${item.amount}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Add any additional sections or elements as needed -->
+
+</body>
+</html>
